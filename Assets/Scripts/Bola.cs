@@ -11,22 +11,12 @@ public class Bola : MonoBehaviour
     Vector2 direction;
     void Start()
     {
-        direction = Vector2.one.normalized;
-        radius = transform.localScale.x / 2;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(direction * speed * Time.deltaTime);
-
-        if(transform.position.y < GameManager.bottomLeft.y + radius && direction.y < 0){
-            direction.y = -direction.y;
-        }
-        if(transform.position.y > GameManager.bottomRight.y + radius && direction.y > 0){
-            direction.y = -direction.y;
-        }
-
-        if (transform.position.x < GameManager.bottomRight.x + radius && direction.x)
+       
     }
 }

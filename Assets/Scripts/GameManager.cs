@@ -7,8 +7,6 @@ public class GameManager : MonoBehaviour
     public Bola bola;
     public Barra barra;
 
-    public float BottomLeft;
-    public float TopRight;
     // Start is called before the first frame update
     void Start()
     {
