@@ -12,8 +12,11 @@ public class GameManager : MonoBehaviour
     {
         Instantiate (bola);
 
-        Instantiate (barra);
+        Barra barraDerecha = Instantiate (barra);
+        Barra barraIzquierda = Instantiate(barra);
 
+        barraDerecha.Init(true);
+        barraIzquierda.Init(false);
     }
 
     // Update is called once per frame

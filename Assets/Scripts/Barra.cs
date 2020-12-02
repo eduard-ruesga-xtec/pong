@@ -4,25 +4,33 @@ using UnityEngine;
 
 public class Barra : MonoBehaviour
 {
-    float velocidad = 1.0f;
+    public float velocidad = 1.0f;
     float height;
 
-    string input;
+    //Siempre positivo!
+    float posInicioBarraX = 6f;
     bool esDerecha;
+    string input;
+
     // Start is called before the first frame update
     void Start()
     {
-        height = transform.localScale.y;
+        //height = transform.localScale.y;
     }
 
     public void Init(bool _esDerecha){
         esDerecha = _esDerecha;
 
+        Vector3 initPos = new Vector3(posInicioBarraX,0,0);
 
-        if(_esDerecha){
-        
+        if(esDerecha){
+            this.gameObject.transform.position = initPos;
+            this.gameObject.name = "BarraDerecha";
+            input = "Derecha";
         } else {
-       
+            this.gameObject.transform.position = -initPos;
+            this.gameObject.name = "Barraizquierda";
+            input = "Izquierda";
         }
 
     }
@@ -30,7 +38,12 @@ public class Barra : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     float move = Input.GetAxis(input) * Time.deltaTime * velocidad;
+
+        float move = Input.GetAxis(input) * velocidad;
+        Vector3 pos = this.gameObject.transform.position;
+        this.gameObject.transform.position = new Vector3(pos.x, pos.y + move, pos.z);
+
+        //Debug.Log("Barra move= " + move);
      
      
     }
