@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public Bola bola;
     public Barra barra;
 
+    public Vector2 limiteArribaIzquierda;
+    public Vector2 limiteAbajoDerecha;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,11 +19,11 @@ public class GameManager : MonoBehaviour
 
         barraDerecha.Init(true);
         barraIzquierda.Init(false);
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
+        limiteAbajoDerecha    = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0));
+        limiteArribaIzquierda = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0));
+        Debug.Log(this.gameObject.name + " limiteArribaIzquierda= " + limiteArribaIzquierda);
+        Debug.Log($"{this.gameObject.name} limiteAbajoDerecha= {limiteAbajoDerecha}");
         
     }
 }
